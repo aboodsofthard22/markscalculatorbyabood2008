@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>حاسبة علامات الطلاب</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #e0f7fa, #fff);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px;
+      color: #333;
+    }
+    h1 {
+      color: #00796b;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #00796b;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #004d40;
+    }
+    .follow-links {
+      margin-top: 15px;
+    }
+    .follow-links a {
+      margin: 0 10px;
+      color: inherit;
+      transition: transform 0.3s;
+    }
+    .follow-links a:hover {
+      transform: translateY(-10px);
+    }
+    @media (max-width:640px) {
+      nav {
+        height: auto;
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+      }
+      main {
+        margin-left: 0;
+        margin-top: 130px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>حاسبة علامات الطلاب - جيل 2008</h1>
+  <div class="container">
+    <input type="number" id="subject1" placeholder="اللغة العربية">
+    <input type="number" id="subject2" placeholder="اللغة الانجليزية ">
+    <input type="number" id="subject4" placeholder="تاريخ الاردن">
+    <input type="number" id="subject3" placeholder="التربية الاسلامية">
+    <button onclick="calculate()">احسب المجموع</button>
+    <div class="result" id="totalResult"></div>
+    
+    <div style="margin-top: 20px;">
+      جميع الحقوق محفوظة Abdullah Alhunity
+    </div>
+    
+    <div class="follow-links">
+      <a href="https://web.facebook.com/abdullah.alhuniti99"" target="_blank" style="color: #3b5998;">
+        <i class="fab fa-facebook fa-2x"></i>
+      </a>
+      <a href="https://www.instagram.com/3bdallah_a007/" target="_blank" style="color: #e1306c;">
+        <i class="fab fa-instagram fa-2x"></i>
+      </a>
+      <a href="https://wa.me/962782033085" target="_blank" style="color: #25D366;">
+        <i class="fab fa-whatsapp fa-2x"></i>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function calculate() {
+      const s1 = parseInt(document.getElementById('subject1').value) || 0;
+      const s2 = parseInt(document.getElementById('subject2').value) || 0;
+      const s3 = parseInt(document.getElementById('subject3').value) || 0;
+      const s4 = parseInt(document.getElementById('subject4').value) || 0;
+
+      const s1Percent = s1 / 100;
+      const s2Percent = s2 / 100;
+      const s3Percent = s3 / 60;
+      const s4Percent = s4 / 40;
+
+      const total =
+        (s1Percent * 10) +
+        (s2Percent * 10) +
+        (s3Percent * 6) +
+        (s4Percent * 4);
+
+      document.getElementById('totalResult').innerText =
+        `المجموع النهائي: ${total.toFixed(2)} من 30`;
+    }
+  </script>
+</body>
+</html>
